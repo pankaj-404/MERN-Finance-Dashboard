@@ -12,15 +12,15 @@ export const tokens = {
   },
   primary: {
     // light green
-    100: "#d0fcf4",
-    200: "#a0f9e9",
-    300: "#71f5de",
-    400: "#41f2d3",
-    500: "#12efc8",
-    600: "#0ebfa0",
-    700: "#0b8f78",
-    800: "#076050",
-    900: "#043028",
+    100: "#dbf5ee",
+    200: "#b7ebde",
+    300: "#94e2cd",
+    400: "#70d8bd",
+    500: "#4cceac",
+    600: "#3da58a",
+    700: "#2e7c67",
+    800: "#1e5245",
+    900: "#0f2922",
   },
   secondary: {
     // yellow
@@ -33,17 +33,6 @@ export const tokens = {
     700: "#916c33",
     800: "#614822",
     900: "#302411",
-  },
-  greenAccent: {
-    100: "#dbf5ee",
-    200: "#b7ebde",
-    300: "#94e2cd",
-    400: "#70d8bd",
-    500: "#4cceac",
-    600: "#3da58a",
-    700: "#2e7c67",
-    800: "#1e5245",
-    900: "#0f2922",
   },
   redAccent: {
     100: "#f8dcdb",
@@ -88,6 +77,12 @@ export const themeSettings = {
     secondary: {
       ...tokens.secondary,
       main: tokens.secondary[500],
+    },
+    redAccent: {
+      ...tokens.redAccent,
+    },
+    blueAccent: {
+      ...tokens.blueAccent,
     },
     tertiary: {
       ...tokens.tertiary,
