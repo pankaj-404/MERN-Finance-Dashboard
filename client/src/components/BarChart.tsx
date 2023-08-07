@@ -10,16 +10,11 @@ import {
 } from "recharts";
 
 type Data = {
-  id: string;
-  _id: string;
-  month: string;
+  name: string;
   revenue: number;
-  expenses: number;
-  operationalExpenses: number;
-  nonOperationalExpenses: number;
 };
 type BarChartProps = {
-  data: Array<Data>;
+  data: Array<Data>|undefined;
   xAxisDataKey: string;
   areaKey1: string;
   areaKey2: string;

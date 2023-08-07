@@ -1,12 +1,12 @@
 import { CartesianGrid, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis, ZAxis } from 'recharts'
 import {useTheme} from "@mui/material"
 type Data = {
-   _id: string;
+   id: string;
   price : number;
   expense: number;
 };
 type ScatterChartProps = {
-    data: Array<Data>;
+    data: Array<Data>|undefined;
     xAxisDataKey: string;
   areaKey1: string;
   areaKey2: string;

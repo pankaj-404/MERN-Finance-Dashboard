@@ -98,7 +98,7 @@ const Dashboard = () => {
   const revenue = useMemo(() => {
     return (
       data &&
-      data[0].monthlyData.map(({ month, revenue }: revenueData) => {
+      data[0]?.monthlyData?.map(({ month, revenue }: revenueData) => {
         return {
           name: month.substring(0, 3),
           revenue: revenue,
@@ -110,7 +110,7 @@ const Dashboard = () => {
   const revenueExpenses = useMemo(() => {
     return (
       data &&
-      data[0].monthlyData.map(
+      data[0]?.monthlyData?.map(
         ({ month, revenue, expenses }: revenueExpensesData) => {
           return {
             name: month.substring(0, 3),
@@ -125,12 +125,12 @@ const Dashboard = () => {
   const revenueProfit = useMemo(() => {
     return (
       data &&
-      data[0].monthlyData.map(
+      data[0]?.monthlyData?.map(
         ({ month, revenue, expenses }: revenueProfitData) => {
           return {
             name: month.substring(0, 3),
             revenue: revenue,
-            profit: (revenue - expenses).toFixed(2),
+            profit:  parseInt((revenue - expenses).toFixed(2)),
           };
         }
       )
@@ -140,12 +140,14 @@ const Dashboard = () => {
    const operationalExpenses = useMemo(() => {
     return (
       data &&
-      data[0].monthlyData.map(
+      data[0]?.monthlyData?.map(
         ({ month, operationalExpenses, nonOperationalExpenses }:operationalExpensesData) => {
           return {
             name: month.substring(0, 3),
-            "Operational Expenses": operationalExpenses,
-            "Non Operational Expenses": nonOperationalExpenses,
+            revenue: operationalExpenses,
+            profit: nonOperationalExpenses,
+            // "Operational Expenses": operationalExpenses,
+            // "Non Operational Expenses": nonOperationalExpenses,
           };
         }
       )
@@ -309,8 +311,11 @@ const Dashboard = () => {
         <BiaxialLineChart
           data={operationalExpenses}
           xAxisDataKey="name"
-          areaKey1="Non Operational Expenses"
-          areaKey2="Operational Expenses"
+          areaKey1="profit"
+
+          areaKey2="revenue"
+          // areaKey1="Non Operational Expenses"
+          // areaKey2="Operational Expenses"
         />
       </DashboardBox>
       <DashboardBox gridArea="e">
