@@ -1,8 +1,8 @@
 import DashboardBox from "@/components/DashboardBox";
 import FlexBetween from "@/components/FlexBetween";
-// import { useGetKpisQuery } from "@/state/api.js";
+// import { useGetKpisQuery } from "@/state/apis";
 import { Box, Button, Typography, useTheme } from "@mui/material";
-import React, {  useState } from "react";
+import {   useState } from "react";
 import {
   CartesianGrid,
   Label,
@@ -26,18 +26,18 @@ const Predictions = () => {
   //   const monthData = kpiData[0].monthlyData;
 
   //   const formatted: Array<DataPoint> = monthData.map(
-  //     ({ revenue }:{revenue:number}, i: number) => {
+  //     ({ revenue }, i: number) => {
   //       return [i, revenue];
   //     }
   //   );
-  //   const regressionLine = regression.linear(formatted);
+  //   const regressionLine = regression?.linear(formatted);
 
-  //   return monthData.map(({ month, revenue }:{month:string,revenue:number}, i: number) => {
+  //   return monthData.map(({ month, revenue }, i: number) => {
   //     return {
   //       name: month,
   //       "Actual Revenue": revenue,
-  //       "Regression Line": regressionLine.points[i][1],
-  //       "Predicted Revenue": regressionLine.predict(i + 12)[1],
+  //       "Regression Line": regressionLine && regressionLine.points.length>0 && regressionLine?.points[i][1],
+  //       "Predicted Revenue":  regressionLine && regressionLine.points.length>0 &&regressionLine?.predict(i + 12)[1],
   //     };
   //   });
   // }, [kpiData]);
@@ -65,7 +65,6 @@ const Predictions = () => {
       </FlexBetween>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          // data={formattedData}
           data={[]}
           margin={{
             top: 20,
